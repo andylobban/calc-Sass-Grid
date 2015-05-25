@@ -37,6 +37,14 @@ $hundred_percent: 100%;
         margin-left: ($small_gutter/2);
         margin-right: ($small_gutter/2);
         }
+    .col.padded {
+        margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+        padding-bottom: $small_gutter;
+        padding-left: ($small_gutter/2);
+        padding-right: ($small_gutter/2);
+        }
     .push--bottom {
         margin-bottom: $small_gutter;
         }
@@ -71,6 +79,14 @@ $hundred_percent: 100%;
         margin-bottom: $medium_gutter;
         margin-left: ($medium_gutter/2);
         margin-right: ($medium_gutter/2);
+        }
+    .col.padded {
+        margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+        padding-bottom: $medium_gutter;
+        padding-left: ($medium_gutter/2);
+        padding-right: ($medium_gutter/2);
         }
     .push--bottom {
         margin-bottom: $medium_gutter;
@@ -112,6 +128,14 @@ $hundred_percent: 100%;
         margin-left: ($large_gutter/2);
         margin-right: ($large_gutter/2);
         }
+    .col.padded {
+        margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+        padding-bottom: $large_gutter;
+        padding-left: ($large_gutter/2);
+        padding-right: ($large_gutter/2);
+        }
     .push--bottom {
         margin-bottom: $large_gutter;
         }
@@ -151,6 +175,14 @@ $hundred_percent: 100%;
         margin-bottom: $xlarge_gutter;
         margin-left: ($xlarge_gutter/2);
         margin-right: ($xlarge_gutter/2);
+        }
+    .col.padded {
+        margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+        padding-bottom: $xlarge_gutter;
+        padding-left: ($xlarge_gutter/2);
+        padding-right: ($xlarge_gutter/2);
         }
     .push--bottom {
         margin-bottom: $xlarge_gutter;
