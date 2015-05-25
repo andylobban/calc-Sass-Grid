@@ -25,15 +25,14 @@ $max_width: 1248px;
     width: 100%;
     }
 
-[class^='col--'],
-[class*=' col--'] {
+col {
     float: left;
     }
 
 $hundred_percent: 100%;
 
 @media all and (min-width: $small_min_width) {
-    [class*='col--'] {
+    .col {
         margin-bottom: $small_gutter;
         margin-left: ($small_gutter/2);
         margin-right: ($small_gutter/2);
@@ -55,20 +54,20 @@ $hundred_percent: 100%;
         }
     @for $i from 1 through $small_columns {
         $small_col_width: (($i / $small_columns) * $hundred_percent); 
-        .col--small--#{$i} { 
+        .small--#{$i} { 
             width: calc(#{$small_col_width} - #{$small_gutter}); 
             }
-        [class*=' col--'].push--small--#{$i} { 
+        .col.push--small--#{$i} { 
             margin-left: calc(#{$small_col_width} + (#{$small_gutter}/2)); 
             }
-        .col--small--#{$i}.row { 
+        .small--#{$i}.row { 
             width: calc(#{$small_col_width}); 
             }
         }
     }
 
 @media all and (min-width: $medium_min_width) {
-    [class*='col--'] {
+    .col {
         margin-bottom: $medium_gutter;
         margin-left: ($medium_gutter/2);
         margin-right: ($medium_gutter/2);
@@ -95,20 +94,20 @@ $hundred_percent: 100%;
         }
     @for $i from 1 through $medium_columns {
         $medium_col_width: (($i / $medium_columns) * $hundred_percent); 
-        .col--medium--#{$i} { 
+        .medium--#{$i} { 
             width: calc(#{$medium_col_width} - #{$medium_gutter}); 
             }
-        [class*=' col--'].push--medium--#{$i} { 
+        .col.push--medium--#{$i} { 
             margin-left: calc(#{$medium_col_width} + (#{$medium_gutter}/2)); 
             }
-        .col--medium--#{$i}.row { 
+        .medium--#{$i}.row { 
             width: calc(#{$medium_col_width}); 
             }
         }
     }
 
 @media all and (min-width: $large_min_width) {
-    [class*='col--'] {
+    .col {
         margin-bottom: $large_gutter;
         margin-left: ($large_gutter/2);
         margin-right: ($large_gutter/2);
@@ -135,20 +134,20 @@ $hundred_percent: 100%;
         }
     @for $i from 1 through $large_columns {
         $large_col_width: (($i / $large_columns) * $hundred_percent); 
-        .col--large--#{$i} { 
+        .large--#{$i} { 
             width: calc(#{$large_col_width} - #{$large_gutter}); 
             }
-        [class*=' col--'].push--large--#{$i} { 
+        .col.push--large--#{$i} { 
             margin-left: calc(#{$large_col_width} + (#{$large_gutter}/2)); 
             }
-        .col--large--#{$i}.row { 
+        .large--#{$i}.row { 
             width: calc(#{$large_col_width}); 
             }
         }
     }
 
 @media all and (min-width: $xlarge_min_width) {
-    [class*='col--'] {
+    .col {
         margin-bottom: $xlarge_gutter;
         margin-left: ($xlarge_gutter/2);
         margin-right: ($xlarge_gutter/2);
@@ -175,13 +174,13 @@ $hundred_percent: 100%;
         }
     @for $i from 1 through $xlarge_columns {
         $xlarge_col_width: (($i / $xlarge_columns) * $hundred_percent); 
-        .col--xlarge--#{$i} { 
+        .xlarge--#{$i} { 
             width: calc(#{$xlarge_col_width} - #{$xlarge_gutter}); 
             }
-        [class*=' col--'].push--xlarge--#{$i} { 
+        .col.push--xlarge--#{$i} { 
             margin-left: calc(#{$xlarge_col_width} + (#{$xlarge_gutter}/2));
             }
-        .col--xlarge--#{$i}.row { 
+        .xlarge--#{$i}.row { 
             width: calc(#{$xlarge_col_width}); 
             }
         }
