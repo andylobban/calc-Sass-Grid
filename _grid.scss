@@ -16,6 +16,9 @@ $xlarge_min_width: 80em;
 
 $site_max_width: 1248px;
 
+$suffix: false; /* Change to true if you want class names of the form .small--4of12 instead of .small--4 */
+
+
 /* ------- STOP EDITING NOW ------- */
 
 .wrapper {
@@ -62,14 +65,26 @@ $hundred_percent: 100%;
         }
     @for $i from 1 through $small_columns {
         $small_col_width: (($i / $small_columns) * $hundred_percent); 
-        .small--#{$i} { 
-            width: calc(#{$small_col_width} - #{$small_gutter}); 
-            }
-        .col.push--small--#{$i} { 
-            margin-left: calc(#{$small_col_width} + (#{$small_gutter}/2)); 
-            }
-        .small--#{$i}.row { 
-            width: calc(#{$small_col_width}); 
+        @if $suffix == true {
+            .small--#{$i}of#{$small_columns} { 
+                width: calc(#{$small_col_width} - #{$small_gutter}); 
+                } 
+            .col.push--small--#{$i}of#{$small_columns} { 
+                margin-left: calc(#{$small_col_width} + (#{$small_gutter}/2)); 
+                }
+            .small--#{$i}of#{$small_columns}.row { 
+                width: calc(#{$small_col_width}); 
+                }
+        } @else if $suffix == false {
+            .small--#{$i} { 
+                width: calc(#{$small_col_width} - #{$small_gutter}); 
+                }
+            .col.push--small--#{$i} { 
+                margin-left: calc(#{$small_col_width} + (#{$small_gutter}/2)); 
+                }
+            .small--#{$i}.row { 
+                width: calc(#{$small_col_width}); 
+                }
             }
         }
     }
@@ -109,15 +124,27 @@ $hundred_percent: 100%;
         float: right;
         }
     @for $i from 1 through $medium_columns {
-        $medium_col_width: (($i / $medium_columns) * $hundred_percent); 
-        .medium--#{$i} { 
-            width: calc(#{$medium_col_width} - #{$medium_gutter}); 
-            }
-        .col.push--medium--#{$i} { 
-            margin-left: calc(#{$medium_col_width} + (#{$medium_gutter}/2)); 
-            }
-        .medium--#{$i}.row { 
-            width: calc(#{$medium_col_width}); 
+        $small_col_width: (($i / $medium_columns) * $hundred_percent); 
+        @if $suffix == true {
+            .small--#{$i}of#{$medium_columns} { 
+                width: calc(#{$medium_col_width} - #{$medium_gutter}); 
+                } 
+            .col.push--medium--#{$i}of#{$medium_columns} { 
+                margin-left: calc(#{$medium_col_width} + (#{$medium_gutter}/2)); 
+                }
+            .medium--#{$i}of#{$medium_columns}.row { 
+                width: calc(#{$medium_col_width}); 
+                }
+        } @else if $suffix == false {
+            .medium--#{$i} { 
+                width: calc(#{$medium_col_width} - #{$medium_gutter}); 
+                }
+            .col.push--medium--#{$i} { 
+                margin-left: calc(#{$medium_col_width} + (#{$medium_gutter}/2)); 
+                }
+            .medium--#{$i}.row { 
+                width: calc(#{$medium_col_width}); 
+                }
             }
         }
     }
@@ -157,15 +184,27 @@ $hundred_percent: 100%;
         float: right;
         }
     @for $i from 1 through $large_columns {
-        $large_col_width: (($i / $large_columns) * $hundred_percent); 
-        .large--#{$i} { 
-            width: calc(#{$large_col_width} - #{$large_gutter}); 
-            }
-        .col.push--large--#{$i} { 
-            margin-left: calc(#{$large_col_width} + (#{$large_gutter}/2)); 
-            }
-        .large--#{$i}.row { 
-            width: calc(#{$large_col_width}); 
+        $small_col_width: (($i / $large_columns) * $hundred_percent); 
+        @if $suffix == true {
+            .small--#{$i}of#{$large_columns} { 
+                width: calc(#{$large_col_width} - #{$large_gutter}); 
+                } 
+            .col.push--large--#{$i}of#{$large_columns} { 
+                margin-left: calc(#{$large_col_width} + (#{$large_gutter}/2)); 
+                }
+            .large--#{$i}of#{$large_columns}.row { 
+                width: calc(#{$large_col_width}); 
+                }
+        } @else if $suffix == false {
+            .large--#{$i} { 
+                width: calc(#{$large_col_width} - #{$large_gutter}); 
+                }
+            .col.push--large--#{$i} { 
+                margin-left: calc(#{$large_col_width} + (#{$large_gutter}/2)); 
+                }
+            .large--#{$i}.row { 
+                width: calc(#{$large_col_width}); 
+                }
             }
         }
     }
@@ -204,16 +243,28 @@ $hundred_percent: 100%;
     .switch--xlarge {
         float: right;
         }
-    @for $i from 1 through $xlarge_columns {
-        $xlarge_col_width: (($i / $xlarge_columns) * $hundred_percent); 
-        .xlarge--#{$i} { 
-            width: calc(#{$xlarge_col_width} - #{$xlarge_gutter}); 
-            }
-        .col.push--xlarge--#{$i} { 
-            margin-left: calc(#{$xlarge_col_width} + (#{$xlarge_gutter}/2));
-            }
-        .xlarge--#{$i}.row { 
-            width: calc(#{$xlarge_col_width}); 
+    for $i from 1 through $xlarge_columns {
+        $small_col_width: (($i / $xlarge_columns) * $hundred_percent); 
+        @if $suffix == true {
+            .small--#{$i}of#{$xlarge_columns} { 
+                width: calc(#{$xlarge_col_width} - #{$xlarge_gutter}); 
+                } 
+            .col.push--xlarge--#{$i}of#{$xlarge_columns} { 
+                margin-left: calc(#{$xlarge_col_width} + (#{$xlarge_gutter}/2)); 
+                }
+            .xlarge--#{$i}of#{$xlarge_columns}.row { 
+                width: calc(#{$xlarge_col_width}); 
+                }
+        } @else if $suffix == false {
+            .xlarge--#{$i} { 
+                width: calc(#{$xlarge_col_width} - #{$xlarge_gutter}); 
+                }
+            .col.push--xlarge--#{$i} { 
+                margin-left: calc(#{$xlarge_col_width} + (#{$xlarge_gutter}/2)); 
+                }
+            .xlarge--#{$i}.row { 
+                width: calc(#{$xlarge_col_width}); 
+                }
             }
         }
     }
