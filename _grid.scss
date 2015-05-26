@@ -1,34 +1,34 @@
-$small_columns: 4;
+$small_columns: 12;
 $small_gutter: 10px;
 $small_min_width: 20em;
 
-$medium_columns: 6;
+$medium_columns: 12;
 $medium_gutter: 20px;
 $medium_min_width: 40em;
 
 $large_columns: 12;
-$large_gutter: 30px;
+$large_gutter: 20px;
 $large_min_width: 60em;
 
-$xlarge_columns: 16;
-$xlarge_gutter: 3em;
+$xlarge_columns: 12;
+$xlarge_gutter: 20px;
 $xlarge_min_width: 80em;
 
-$site_max_width: 1248px;
+$site_max_width: 1500px;
 
 $suffix: false; /* Change to true if you want class names of the form .small--4of12 instead of .small--4 */
 
 
 /* ------- STOP EDITING NOW ------- */
 
-.wrapper {
+.wrap {
     margin-left: auto;
     margin-right: auto;
     max-width: $site_max_width;
     width: 100%;
     }
 
-col {
+.col {
     float: left;
     }
 
@@ -124,7 +124,7 @@ $hundred_percent: 100%;
         float: right;
         }
     @for $i from 1 through $medium_columns {
-        $small_col_width: (($i / $medium_columns) * $hundred_percent); 
+        $medium_col_width: (($i / $medium_columns) * $hundred_percent); 
         @if $suffix == true {
             .small--#{$i}of#{$medium_columns} { 
                 width: calc(#{$medium_col_width} - #{$medium_gutter}); 
@@ -137,7 +137,7 @@ $hundred_percent: 100%;
                 }
         } @else if $suffix == false {
             .medium--#{$i} { 
-                width: calc(#{$medium_col_width} - #{$medium_gutter}); 
+                width: calc(#{$medium_col_width} - #{$medium_gutter});
                 }
             .col.push--medium--#{$i} { 
                 margin-left: calc(#{$medium_col_width} + (#{$medium_gutter}/2)); 
@@ -184,9 +184,9 @@ $hundred_percent: 100%;
         float: right;
         }
     @for $i from 1 through $large_columns {
-        $small_col_width: (($i / $large_columns) * $hundred_percent); 
+        $large_col_width: (($i / $large_columns) * $hundred_percent); 
         @if $suffix == true {
-            .small--#{$i}of#{$large_columns} { 
+            .large--#{$i}of#{$large_columns} { 
                 width: calc(#{$large_col_width} - #{$large_gutter}); 
                 } 
             .col.push--large--#{$i}of#{$large_columns} { 
@@ -243,10 +243,10 @@ $hundred_percent: 100%;
     .switch--xlarge {
         float: right;
         }
-    for $i from 1 through $xlarge_columns {
-        $small_col_width: (($i / $xlarge_columns) * $hundred_percent); 
+    @for $i from 1 through $xlarge_columns {
+        $xlarge_col_width: (($i / $xlarge_columns) * $hundred_percent); 
         @if $suffix == true {
-            .small--#{$i}of#{$xlarge_columns} { 
+            .xlarge#{$i}of#{$xlarge_columns} { 
                 width: calc(#{$xlarge_col_width} - #{$xlarge_gutter}); 
                 } 
             .col.push--xlarge--#{$i}of#{$xlarge_columns} { 
