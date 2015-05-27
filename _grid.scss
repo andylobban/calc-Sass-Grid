@@ -1,5 +1,5 @@
 $small_columns: 12;
-$small_gutter: 10px;
+$small_gutter: 20px;
 $small_min_width: 20em;
 
 $medium_columns: 12;
@@ -21,7 +21,7 @@ $suffix: false; /* Change to true if you want class names of the form .small--4o
 
 /* ------- STOP EDITING NOW ------- */
 
-.wrap {
+.wrapper {
     margin-left: auto;
     margin-right: auto;
     max-width: $site_max_width;
@@ -66,24 +66,26 @@ $hundred_percent: 100%;
     @for $i from 1 through $small_columns {
         $small_col_width: (($i / $small_columns) * $hundred_percent); 
         @if $suffix == true {
-            .small--#{$i}of#{$small_columns} { 
+            .small-#{$i}of#{$small_columns} { 
                 width: calc(#{$small_col_width} - #{$small_gutter}); 
+                .row { 
+                    margin-left: -($small_gutter/2);
+                    width: calc(#{$hundred_percent} + #{$small_gutter}); 
+                    }
                 } 
-            .col.push--small--#{$i}of#{$small_columns} { 
+            .col.push--small-#{$i}of#{$small_columns} { 
                 margin-left: calc(#{$small_col_width} + (#{$small_gutter}/2)); 
-                }
-            .small--#{$i}of#{$small_columns}.row { 
-                width: calc(#{$small_col_width}); 
                 }
         } @else if $suffix == false {
-            .small--#{$i} { 
+            .small-#{$i} { 
                 width: calc(#{$small_col_width} - #{$small_gutter}); 
+                .row { 
+                    margin-left: -($small_gutter/2);
+                    width: calc(#{$hundred_percent} + #{$small_gutter}); 
+                    }
                 }
-            .col.push--small--#{$i} { 
+            .col.push--small-#{$i} { 
                 margin-left: calc(#{$small_col_width} + (#{$small_gutter}/2)); 
-                }
-            .small--#{$i}.row { 
-                width: calc(#{$small_col_width}); 
                 }
             }
         }
@@ -126,24 +128,26 @@ $hundred_percent: 100%;
     @for $i from 1 through $medium_columns {
         $medium_col_width: (($i / $medium_columns) * $hundred_percent); 
         @if $suffix == true {
-            .small--#{$i}of#{$medium_columns} { 
+            .medium-#{$i}of#{$medium_columns} { 
                 width: calc(#{$medium_col_width} - #{$medium_gutter}); 
+                .row { 
+                    margin-left: -($medium_gutter/2);
+                    width: calc(#{$hundred_percent} + #{$medium_gutter}); 
+                    }
                 } 
-            .col.push--medium--#{$i}of#{$medium_columns} { 
+            .col.push--medium-#{$i}of#{$medium_columns} { 
                 margin-left: calc(#{$medium_col_width} + (#{$medium_gutter}/2)); 
-                }
-            .medium--#{$i}of#{$medium_columns}.row { 
-                width: calc(#{$medium_col_width}); 
                 }
         } @else if $suffix == false {
-            .medium--#{$i} { 
+            .medium-#{$i} { 
                 width: calc(#{$medium_col_width} - #{$medium_gutter});
+                .row { 
+                    margin-left: -($medium_gutter/2);
+                    width: calc(#{$hundred_percent} + #{$medium_gutter}); 
+                    }
                 }
-            .col.push--medium--#{$i} { 
+            .col.push--medium-#{$i} { 
                 margin-left: calc(#{$medium_col_width} + (#{$medium_gutter}/2)); 
-                }
-            .medium--#{$i}.row { 
-                width: calc(#{$medium_col_width}); 
                 }
             }
         }
@@ -186,24 +190,26 @@ $hundred_percent: 100%;
     @for $i from 1 through $large_columns {
         $large_col_width: (($i / $large_columns) * $hundred_percent); 
         @if $suffix == true {
-            .large--#{$i}of#{$large_columns} { 
+            .large-#{$i}of#{$large_columns} { 
                 width: calc(#{$large_col_width} - #{$large_gutter}); 
+                .row { 
+                    margin-left: -($large_gutter/2);
+                    width: calc(#{$hundred_percent} + #{$large_gutter}); 
+                    }
                 } 
-            .col.push--large--#{$i}of#{$large_columns} { 
+            .col.push--large-#{$i}of#{$large_columns} { 
                 margin-left: calc(#{$large_col_width} + (#{$large_gutter}/2)); 
-                }
-            .large--#{$i}of#{$large_columns}.row { 
-                width: calc(#{$large_col_width}); 
                 }
         } @else if $suffix == false {
-            .large--#{$i} { 
+            .large-#{$i} { 
                 width: calc(#{$large_col_width} - #{$large_gutter}); 
+                .row { 
+                    margin-left: -($large_gutter/2);
+                    width: calc(#{$hundred_percent} + #{$large_gutter}); 
+                    }
                 }
-            .col.push--large--#{$i} { 
+            .col.push-large--#{$i} { 
                 margin-left: calc(#{$large_col_width} + (#{$large_gutter}/2)); 
-                }
-            .large--#{$i}.row { 
-                width: calc(#{$large_col_width}); 
                 }
             }
         }
@@ -246,24 +252,26 @@ $hundred_percent: 100%;
     @for $i from 1 through $xlarge_columns {
         $xlarge_col_width: (($i / $xlarge_columns) * $hundred_percent); 
         @if $suffix == true {
-            .xlarge#{$i}of#{$xlarge_columns} { 
+            .xlarge-#{$i}of#{$xlarge_columns} { 
                 width: calc(#{$xlarge_col_width} - #{$xlarge_gutter}); 
+                .row { 
+                    margin-left: -($xlarge_gutter/2);
+                    width: calc(#{$hundred_percent} + #{$xlarge_gutter}); 
+                    }
                 } 
-            .col.push--xlarge--#{$i}of#{$xlarge_columns} { 
+            .col.push--xlarge-#{$i}of#{$xlarge_columns} { 
                 margin-left: calc(#{$xlarge_col_width} + (#{$xlarge_gutter}/2)); 
-                }
-            .xlarge--#{$i}of#{$xlarge_columns}.row { 
-                width: calc(#{$xlarge_col_width}); 
                 }
         } @else if $suffix == false {
-            .xlarge--#{$i} { 
+            .xlarge-#{$i} { 
                 width: calc(#{$xlarge_col_width} - #{$xlarge_gutter}); 
+                .row { 
+                    margin-left: -($xlarge_gutter/2);
+                    width: calc(#{$hundred_percent} + #{$xlarge_gutter}); 
+                    }
                 }
-            .col.push--xlarge--#{$i} { 
-                margin-left: calc(#{$xlarge_col_width} + (#{$xlarge_gutter}/2)); 
-                }
-            .xlarge--#{$i}.row { 
-                width: calc(#{$xlarge_col_width}); 
+            .col.push--xlarge-#{$i} { 
+                margin-left: calc(#{$xlarge_col_width} + (#{$xlarge_gutter} / 2)); 
                 }
             }
         }
