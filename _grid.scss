@@ -69,7 +69,7 @@ $margin-right: ($gutter/2);
 // Example: @include grid($class: 'col', $columns: $columns, $gutter: $gutter, $extend: '');
 //-----------------------------------------------------------------------------//
 
-@media (min-width: $breakpoint-medium) {
+@media (min-width: $breakpoint-small) {
     @include grid($class: 'small');
 }
 
