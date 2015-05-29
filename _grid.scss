@@ -35,6 +35,11 @@ $margin-right: ($gutter/2);
     .col {
         margin-left: ($gutter/2);
         margin-right: ($gutter/2);
+
+            .row {
+                margin-left: -($gutter/2);
+                margin-right: -($gutter/2);
+            }
     }
 
     .#{$class} {
