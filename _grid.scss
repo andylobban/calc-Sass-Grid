@@ -43,11 +43,12 @@ $margin-right: ($gutter/2);
             }
     }
 
-    .#{$class} {
+    .switch--#{$class} {
+        float: right;
+    }
 
-        &--switch {
-            float: right;
-        }
+    .noswitch--#{$class} {
+        float: left;
     }
 
     @for $i from 1 through $columns - 1 {
