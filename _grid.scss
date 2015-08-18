@@ -55,7 +55,7 @@ $margin-right: ($gutter/2);
             width: calc(#{$column_width} - #{$gutter});
         }
         // Need to test this
-       .push--#{$class}-#{$i} {
+       .col.push--#{$class}-#{$i} {
             margin-left: calc(#{$column_width} + (#{$gutter}/2));
         }
     }
