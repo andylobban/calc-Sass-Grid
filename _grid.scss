@@ -36,6 +36,7 @@ $margin-right: ($gutter/2);
     .col {
         margin-left: ($gutter/2);
         margin-right: ($gutter/2);
+        width: calc(100% - #{$gutter});
         .row {
             margin-left: -($gutter/2);
             margin-right: -($gutter/2);
