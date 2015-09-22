@@ -8,14 +8,19 @@ $breakpoint-small: 20em;
 $breakpoint-medium: 40em;
 $breakpoint-large: 60em;
 $breakpoint-xlarge: 80em;
-
 $site_max_width: 1500px;
+
+$fallback-gutter: 4%;
 
 // = Grid
 //-----------------------------------------------------------------------------//
 
 $margin-left: ($gutter/2);
 $margin-right: ($gutter/2);
+
+$fallback-margin-left: ($fallback-gutter/2);
+$fallback-margin-right: ($fallback-gutter/2);
+$hundred-percent: 100%;
 
 .wrapper {
     margin-left: auto;
@@ -34,13 +39,52 @@ $margin-right: ($gutter/2);
 @mixin grid($class: 'col', $columns: $columns, $gutter: $gutter, $extend: '') {
 
     .col {
-        margin-left: ($gutter/2);
-        margin-right: ($gutter/2);
+    float: left;
+    margin-left: $fallback-margin-left;
+    margin-left: calc(#{$margin-left});
+    margin-right: $fallback-margin-right;
+    margin-right: calc(#{$margin-right});
+    width: $hundred-percent - $fallback-gutter;
+    width: calc(100% - #{$gutter});
+}
+
+.col.padded {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: $fallback-margin-left;
+    padding-left: calc(#{$margin-left});
+    padding-right: $fallback-margin-right;
+    padding-right: calc(#{$margin-right});
+    width: 100%;
+}
+
+@mixin grid($class: 'col', $columns: $columns, $gutter: $gutter, $extend: '') {
+
+    $gutter-half: ($gutter/2);
+
+    .col {
+        margin-left: ($fallback-gutter/2);
+        margin-left: calc(#{$gutter-half});
+        margin-right: ($fallback-gutter/2);
+        margin-right: calc(#{$gutter-half});
+        width: $hundred-percent - $fallback-gutter;
         width: calc(100% - #{$gutter});
         .row {
-            margin-left: -($gutter/2);
-            margin-right: -($gutter/2);
+            margin-left: -($fallback-gutter/2);
+            margin-left: calc(-#{$gutter-half});
+            margin-right: -($fallback-gutter/2);
+            margin-right: calc(-#{$gutter-half});
         }
+    }
+
+    .col.padded {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: ($fallback-gutter/2);
+        padding-left: calc(#{$gutter-half});
+        padding-right: ($fallback-gutter/2);
+        padding-right: calc(#{$gutter-half});
+        width: 100%;
     }
 
     .switch--#{$class} {
@@ -53,26 +97,30 @@ $margin-right: ($gutter/2);
     @for $i from 1 through $columns - 1 {
         $column_width: (($i / $columns) * 100%);
         .#{$class}-#{$i}#{$extend} {
+            width: $column_width - $fallback-gutter;
             width: calc(#{$column_width} - #{$gutter});
         }
-        // Need to test this
-       .col.push--#{$class}-#{$i} {
+        .#{$class}-#{$i}#{$extend}.padded {
+            width: #{$column_width};
+        }
+        .col.push--#{$class}-#{$i} {
+            margin-left: $column_width + ($fallback-gutter/2);
             margin-left: calc(#{$column_width} + (#{$gutter}/2));
         }
     }
 
     .push--bottom {
         margin-bottom: $gutter; 
-        } 
+    } 
     .push--left {
         margin-left: $gutter;
-        }
+    }
     .push--right {
         margin-right: $gutter;
-        }
+    }
     .push--top {
         margin-top: $gutter;
-        }
+    }
 }
 
 .row {
