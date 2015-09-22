@@ -31,15 +31,6 @@ $hundred-percent: 100%;
 
 .col {
     float: left;
-    width: calc(100% - #{$gutter});
-    margin-left: $margin-left;
-    margin-right: $margin-right;
-}
-
-@mixin grid($class: 'col', $columns: $columns, $gutter: $gutter, $extend: '') {
-
-    .col {
-    float: left;
     margin-left: $fallback-margin-left;
     margin-left: calc(#{$margin-left});
     margin-right: $fallback-margin-right;
